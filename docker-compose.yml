@@ -3,6 +3,7 @@ services:
     build:
       context: .
     container_name: app
+    env_file: "stack.env"
     restart: always
     depends_on:
       - redis
