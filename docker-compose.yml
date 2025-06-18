@@ -2,27 +2,26 @@ services:
   bot:
     build:
       context: .
-    container_name: support-bot
+    container_name: app
     restart: always
     depends_on:
       - redis
     volumes:
       - .:/usr/src/app
     networks:
-      - support-bot
+      - interconnect
     tty: true
-    privileged: true
     
 
   redis:
     image: redis:alpine
-    container_name: support-redis
+    container_name: redis
     restart: always
     volumes:
       - ./redis/data/:/data
     networks:
-      - support-bot
+      - interconnect
     tty: true
 
 networks:
-  support-bot:
+  interconnect:
