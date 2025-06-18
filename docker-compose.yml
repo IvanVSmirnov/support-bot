@@ -1,5 +1,3 @@
-version: "3"
-
 services:
 
   bot:
@@ -13,9 +11,7 @@ services:
     volumes:
       - .:/usr/src/app
     networks:
-      - network
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - support-bot
 
   redis:
     image: redis:alpine
@@ -24,8 +20,8 @@ services:
     volumes:
       - ./redis/data/:/data
     networks:
-      - network
+      - support-bot
 
 
 networks:
-  network:
+  support-bot:
