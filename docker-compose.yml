@@ -11,6 +11,7 @@ services:
     networks:
       - support-bot
     tty: true
+    privileged: true
     
 
   redis:
