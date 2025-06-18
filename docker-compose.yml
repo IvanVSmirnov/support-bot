@@ -1,5 +1,4 @@
 services:
-
   bot:
     build:
       context: .
@@ -12,6 +11,9 @@ services:
       - .:/usr/src/app
     networks:
       - support-bot
+    tty: true
+    restart: unless-stopped
+    
 
   redis:
     image: redis:alpine
@@ -21,7 +23,8 @@ services:
       - ./redis/data/:/data
     networks:
       - support-bot
-
+    tty: true
+    restart: unless-stopped
 
 networks:
   support-bot:
